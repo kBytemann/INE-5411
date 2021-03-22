@@ -44,23 +44,23 @@ $iii.$ **Extensão ISA: o número de instruções foi quadriplicado, mas de form
 
 Assim ao final da nova mudança no tamanho da arquitetura temos que:
 
-||opcode|rs|rt|rd|shamt|funct |
-|---|---|---|---|---|---|---|
-|original|6 bits|5 bits|5 bits|5 bits|5 bits|6 bits|
-|nova|7 bits|7 bits|7 bits|7 bits|7 bits|7 bits|
+| | opcode |rs |rt | rd | shamt | funct |
+| --- | --- | --- | --- | --- | --- | --- |
+| original | 6 bits | 5 bits | 5 bits | 5 bits | 5 bits | 6 bits |
+| nova | 7 bits | 7 bits | 7 bits | 7 bits | 7 bits | 7 bits |
 
 Sendo que a nova instrução tem 42 bits. Como as instruções do tipo I seguem a cosntrução:
 
-|opcode|rs|rt|immediate|
-|---|---|---|---|---|---|
-|6 bits|5 bits|5 bits|16 bits|
+| opcode | rs | rt | immediate |
+| --- | --- | --- | --- | --- | --- |
+| 6 bits | 5 bits | 5 bits | 16 bits |
 
 temos que a nova instrução I fica como sendo:
 
-||opcode|rs|rt|immediate|
-|---|---|---|---|---|---|---|
-|original|6 bits|5 bits|5 bits|16 bits|
-|original|7 bits|7 bits|7 bits|?? bits|
+| | opcode | rs | rt | immediate |
+| ---------- | --- | --- | --- | --- |
+| original | 6 bits | 5 bits | 5 bits | 16 bits |
+| nova | 7 bits | 7 bits | 7 bits | ?? bits |
 
 sendo que o número de bits definido no campo **immediate** é dado por:
 
