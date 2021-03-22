@@ -52,7 +52,7 @@ Assim ao final da nova mudança no tamanho da arquitetura temos que:
 Sendo que a nova instrução tem 42 bits. Como as instruções do tipo I seguem a cosntrução:
 
 | opcode | rs | rt | immediate |
-| --- | --- | --- | --- | --- | --- |
+| ------ | --- | --- | --- | 
 | 6 bits | 5 bits | 5 bits | 16 bits |
 
 temos que a nova instrução I fica como sendo:
