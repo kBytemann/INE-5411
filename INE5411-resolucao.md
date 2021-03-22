@@ -10,10 +10,10 @@ Esse gabarito foi formulado por um grupo de estudantes, e não corresponde à re
 ---
 ## Questão 1
 ```assembly
-div	$a0, $a1
-mfhi	$v0
-sll	$v0, $v0, 2
-jr	$ra
+	div	$a0, $a1
+	mfhi	$v0
+	sll	$v0, $v0, 2
+	jr	$ra
 ```
 `div	$a0, $a1`
 > realiza a divisão do valor passado em `$a0` por `$a1`, mantendo apenas o quociente
@@ -120,10 +120,10 @@ Como o bit mais significativo corresponde ao 33º bit, este perde-se como sendo 
 ---
 ## Questão 6
 ```assembly
-		.data
+	.data
 met: 	.word M0, M1, M2, M3, M4...
-		.text
-		.globl main
+	.text
+	.globl main
 main:
 		...
 ```
@@ -180,13 +180,13 @@ o que indica que trata-se da seguinte instruçõa:
 de maneira que o conjunto total de instruções é dado por:
 
 ```assembly
-lui	$at,0(FACE)
-ori	$t1,0($at)
+	lui	$at,0(FACE)
+	ori	$t1,0($at)
 ``` 
 Este conjunto de instruções carrega em `$t1` o endereço `0xFACE0000`, que pode corresponder ao *label* FACE2020. Ou seja, representa a seguinte pseudo-instrução:
 
 ```assembly
-la	$t1,FACE2020
+	la	$t1,FACE2020
 ``` 
 (rever resolução da questão)
 
