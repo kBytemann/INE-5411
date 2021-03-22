@@ -154,7 +154,7 @@ desmembrando os 6 primeiros bits da primeira instrução temos:
 Analisando o opcode, vemos que trata-se de uma instrução do tipo `lui` e que é uma instrução do tipo I, logo:
 
 ||opcode|rs|rt|immediate|
-|---|---|---|---|---|---|---|
+|---|---|---|---|---|
 |binário|`001111`|`00000`|`00001`|`1111101011001110`|
 |hexa|`0F`|`00`|`01`|`FACE`|
 
@@ -170,7 +170,7 @@ desmembrando os 6 primeiros bits da segunda instrução temos:
 sendo assim, trata-se da instrução `ori`, e assim a instrução completa fica como sendo:
 
 ||opcode|rs|rt|immediate|
-|---|---|---|---|---|---|---|
+|---|---|---|---|---|
 |binário|`001101`|`00001`|`01001`|`0000000000000000`|
 |hexa|`0D`|`01`|`09`|`0000`|
 
