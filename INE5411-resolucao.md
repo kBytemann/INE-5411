@@ -1,5 +1,3 @@
-INE 5411 - Organização de computadores I: resolução do compêndio de provas de 20
-
 # INE 5411 - Organização de computadores I: resolução do compêndio de provas de 2020
 
 ${toc}
