@@ -1,10 +1,5 @@
 # INE 5411: 2020 tests compendium resolution
 
-$% \f is defined as #1f(#2) using the macro
-\f\relax{x} = \int_{-\infty}^\infty
-    \f\hat\xi\,e^{2 \pi i \xi x}
-    \,d\xi$
-
 <details>
 <summary>Tabela de questões </summary>
 
