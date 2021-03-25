@@ -2,6 +2,8 @@
 
 #### Tabela de conteúdos
 [Questão 1](##questao1)
+[Questão 2](##questao2)
+[Questão 3](##questao3)
 
 ### Disclaim
 Esse gabarito foi formulado por um grupo de estudantes, e não corresponde à resolução oficial. Também não é composto pela resolução de todas as questões (em um primeiro momento), mas servindo como orientação para resolução e aperfeiçoamento da percepção do que pode ser encontrado nas provas referentes à matéria de Organização de Computadores I. 
