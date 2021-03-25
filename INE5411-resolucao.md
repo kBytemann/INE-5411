@@ -52,11 +52,17 @@ jr	$ra
 
 * **opcode**: refere-se ao número total de instruções gerais (tipo R, I e J) da arquitetura. Como o MIPS possui 6 bits, é previsto na arquitetura <img src="https://render.githubusercontent.com/render/math?math=2^6"> operações;  
 * **rs, rt, rd**: definidos de acordo com a necessidade e melhor conveniência da arquitetuta. No caso do MIPS, 5 bits;
-* **shamt**: é relacionando ao tamanho dos registradores. Como na arquiterura original do MIPS o regitrador do MIPS possui 32 bits, o tamanho de shamt fica definido como sendo:<img src="https://render.githubusercontent.com/render/math?math=\text{log}_{2}{(32)} = 5"> bits;
+* **shamt**: é relacionando ao tamanho dos registradores. Como na arquiterura original do MIPS o regitrador do MIPS possui 32 bits, o tamanho de shamt fica definido como sendo:
+<p align="center">
+ <img src="https://render.githubusercontent.com/render/math?math=\text{log}_{2}{(32)} = 5"> 
+</p>
+* bits;
 * **funct**: se refere ao número de instruções do tipo R que a arquitetuta do MIPS apresenta. Assim, como há 6 bits dedicados para esse campo, podem haver até <img src="https://render.githubusercontent.com/render/math?math=2^6"> instruções dedicadas à instruções do tipo R;
 
 _i_. **Extensão do número de registradores: de 32 para 128**: unclear;
+
 _ii_. **Extensão do comprimento dos registradores: de 32 para 128 bits**: com isso cada campo de registradores deve passar de 5 para 7 bits (cálculo anterior). Como há 3 registradores, soma-se um total de 21 bits. Também afeta o tamanho do campo shamt, passadno de 5 para 7 bits;
+
 _iii_. **Extensão ISA: o número de instruções foi quadriplicado, mas de forma que o número de instruções do tipo R seja o dobro do original**: deve-se começar com a análise do novo número de funções para as intruções do tipo R. Se o total passa a ser duplicado, então o campo funct passa de 6 para 7 bits (o que implica em uma duplicação do valor original de instruções R e portanto do total). Como o valor total de instruções deve duplicado igualmente, resta ainda que opcode passa de 6 bits para 7 bits. 
 
 Assim ao final da nova mudança no tamanho da arquitetura temos que:
@@ -440,7 +446,9 @@ end:	nop
 
 Termo geral da sequência de Fibonacci:
 
+<p align="center">
 <img src="https://render.githubusercontent.com/render/math?math=F_n = \dfrac{\phi^n - \left(1-\phi\right)^n}{\sqrt{5}}\qquad\phi = \dfrac{1 + \sqrt{5}}{2} \simeq 1,618034...">
+</p>
 
 |Termo|0|1|2|3|4|5|6|7|8|9|
 |---|---|---|---|---|---|---|---|---|---|---|
