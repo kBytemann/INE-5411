@@ -50,14 +50,14 @@ jr	$ra
 |opcode (6 bits)|rs (5 bits)|rt (5 bits)|rd (5 bits)|shamt (5 bits)|funct (6 bits)|
 |---|---|---|---|---|---|
 
-* **opcode**: refere-se ao número total de instruções gerais (tipo R, I e J) da arquitetura. Como o MIPS possui 6 bits, é previsto na arquitetura $2^6$ operações;  
+* **opcode**: refere-se ao número total de instruções gerais (tipo R, I e J) da arquitetura. Como o MIPS possui 6 bits, é previsto na arquitetura <img src="https://render.githubusercontent.com/render/math?math=2^6"> operações;  
 * **rs, rt, rd**: definidos de acordo com a necessidade e melhor conveniência da arquitetuta. No caso do MIPS, 5 bits;
-* **shamt**: é relacionando ao tamanho dos registradores. Como na arquiterura original do MIPS o regitrador do MIPS possui 32 bits, o tamanho de shamt fica definido como sendo: $\text{log}_{2}{(32)} = 5$ bits;
-* **funct**: se refere ao número de instruções do tipo R que a arquitetuta do MIPS apresenta. Assim, como há 6 bits dedicados para esse campo, podem haver até $2^6$ instruções dedicadas à instruções do tipo R;
+* **shamt**: é relacionando ao tamanho dos registradores. Como na arquiterura original do MIPS o regitrador do MIPS possui 32 bits, o tamanho de shamt fica definido como sendo:<img src="https://render.githubusercontent.com/render/math?math=\text{log}_{2}{(32)} = 5"> bits;
+* **funct**: se refere ao número de instruções do tipo R que a arquitetuta do MIPS apresenta. Assim, como há 6 bits dedicados para esse campo, podem haver até <img src="https://render.githubusercontent.com/render/math?math=2^6"> instruções dedicadas à instruções do tipo R;
 
-$i.$ **Extensão do número de registradores: de 32 para 128**: unclear;
-$ii.$ **Extensão do comprimento dos registradores: de 32 para 128 bits**: com isso cada campo de registradores deve passar de 5 para 7 bits (cálculo anterior). Como há 3 registradores, soma-se um total de 21 bits. Também afeta o tamanho do campo shamt, passadno de 5 para 7 bits;
-$iii.$ **Extensão ISA: o número de instruções foi quadriplicado, mas de forma que o número de instruções do tipo R seja o dobro do original**: deve-se começar com a análise do novo número de funções para as intruções do tipo R. Se o total passa a ser duplicado, então o campo funct passa de 6 para 7 bits (o que implica em uma duplicação do valor original de instruções R e portanto do total). Como o valor total de instruções deve duplicado igualmente, resta ainda que opcode passa de 6 bits para 7 bits. 
+_i_. **Extensão do número de registradores: de 32 para 128**: unclear;
+_ii_. **Extensão do comprimento dos registradores: de 32 para 128 bits**: com isso cada campo de registradores deve passar de 5 para 7 bits (cálculo anterior). Como há 3 registradores, soma-se um total de 21 bits. Também afeta o tamanho do campo shamt, passadno de 5 para 7 bits;
+_iii_. **Extensão ISA: o número de instruções foi quadriplicado, mas de forma que o número de instruções do tipo R seja o dobro do original**: deve-se começar com a análise do novo número de funções para as intruções do tipo R. Se o total passa a ser duplicado, então o campo funct passa de 6 para 7 bits (o que implica em uma duplicação do valor original de instruções R e portanto do total). Como o valor total de instruções deve duplicado igualmente, resta ainda que opcode passa de 6 bits para 7 bits. 
 
 Assim ao final da nova mudança no tamanho da arquitetura temos que:
 
@@ -69,13 +69,13 @@ Assim ao final da nova mudança no tamanho da arquitetura temos que:
 Sendo que a nova instrução tem 42 bits. Como as instruções do tipo I seguem a cosntrução:
 
 |opcode|rs|rt|immediate|
-|---|---|---|---|---|---|
+|---|---|---|---|
 |6 bits|5 bits|5 bits|16 bits|
 
 temos que a nova instrução I fica como sendo:
 
 ||opcode|rs|rt|immediate|
-|---|---|---|---|---|---|---|
+|---|---|---|---|---|
 |original|6 bits|5 bits|5 bits|16 bits|
 |original|7 bits|7 bits|7 bits|?? bits|
 
@@ -237,14 +237,14 @@ la	$t1,FACE2020
 ## Questão 8 
 Para as instruções do tipo J, o immediate é multiplicado por 4 (deslocamento de 2 bits) e concatenado com os 4 bits mais significativos do PC atual.
 
-$i.$ **Endereço máximo:**
+i. **Endereço máximo:**
 
 	PC = MSB(PC, 4 bits) & (11.1111.1111.1111.1111.11111.1111b)<<2
 	PC = MSB(PC, 4 bits) & (1111.1111.1111.1111.1111.1111.1100b)
 	PC = MSB(PC, 4 bits) & 0xFFFFFFC
 	PC = 0xFFFFFFFC
 	
-$ii.$ **Endereço mínimo:** 
+ii. **Endereço mínimo:** 
 
 	PC = MSB(PC, 4 bits) & (00.0000.0000.0000.0000.0000.0000b)<<2
 	PC = MSB(PC, 4 bits) & (0000.0000.0000.0000.0000.0000.0000b)
@@ -307,7 +307,7 @@ gen:	addi $a0,$a0,-1		#13
 ```
 constituem blocos básicos, pois a última instrução refere-se a uma instrução condicional (teste de registrador) com possível salto.
 
-$i.$ para **n = 0:**
+_i_. para **n = 0:**
 ```
 f:	addi $sp,$sp,-12	#1
 	sw $ra,8($sp)		#2
@@ -319,7 +319,7 @@ f:	addi $sp,$sp,-12	#1
 	jr $ra			#8
 ```
 
-$ii.$ para **n = 1:**
+_ii_. para **n = 1:**
 ```
 f:	addi $sp,$sp,-12	#1 
 	sw $ra,8($sp)		#2
@@ -340,7 +340,7 @@ bne $at,$a0,gen
 ```
 uma vez que não é possível passar dois termos constantes à uma instrução
 
-$iii.$ para **n = 2:**
+_iii_. para **n = 2:**
 ```
 f:	addi $sp,$sp,-12	#1 
 	sw $ra,8($sp)		#2
@@ -441,10 +441,6 @@ end:	nop
 Termo geral da sequência de Fibonacci:
 
 <img src="https://render.githubusercontent.com/render/math?math=F_n = \dfrac{\phi^n - \left(1-\phi\right)^n}{\sqrt{5}}\qquad\phi = \dfrac{1 + \sqrt{5}}{2} \simeq 1,618034...">
-
-$$
-F_n = \dfrac{\phi^n - \left(1-\phi\right)^n}{\sqrt{5}}\qquad\phi = \dfrac{1 + \sqrt{5}}{2} \simeq 1,618034...
-$$
 
 |Termo|0|1|2|3|4|5|6|7|8|9|
 |---|---|---|---|---|---|---|---|---|---|---|
