@@ -26,7 +26,7 @@ Esse gabarito foi formulado por um grupo de estudantes, e não corresponde à re
 
 # Questions answers
 ## Questão 1
-```assembly
+```
 div	$a0, $a1
 mfhi	$v0
 sll	$v0, $v0, 2
