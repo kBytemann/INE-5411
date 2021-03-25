@@ -56,7 +56,8 @@ jr	$ra
 <p align="center">
  <img src="https://render.githubusercontent.com/render/math?math=\text{log}_{2}{(32)} = 5"> 
 </p>
-* bits;
+bits;
+
 * **funct**: se refere ao número de instruções do tipo R que a arquitetuta do MIPS apresenta. Assim, como há 6 bits dedicados para esse campo, podem haver até <img src="https://render.githubusercontent.com/render/math?math=2^6"> instruções dedicadas à instruções do tipo R;
 
 _i_. **Extensão do número de registradores: de 32 para 128**: unclear;
