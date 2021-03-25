@@ -110,13 +110,13 @@ sendo que o número de bits definido no campo **immediate** é dado por:
 
 
 * Código **A**
-```assembly
+```
 lock: 	addi $t0,$zero,1 
-		ll $t1,0($a0)
-		sc $t0,0($a0) 
-		beq $t0,$zero,lock 
-		bne $t1,$zero,lock 
-		jr $ra 
+	ll $t1,0($a0)
+	sc $t0,0($a0) 
+	beq $t0,$zero,lock 
+	bne $t1,$zero,lock 
+	jr $ra 
 ```
 `addi $t0,$zero,1`
 > `$t0` guarda o valor de 1 sinalizando uso de memória
@@ -128,7 +128,7 @@ lock: 	addi $t0,$zero,1
 > armazena o valor de `$t0` em `$a0` caso ...
 
 * Código **B**
-```assembly
+```
 lock: 	ll $t1,0($a0)
  	beq $t1,$zero,lock
  	addi $t0,$zero,1
@@ -138,7 +138,7 @@ lock: 	ll $t1,0($a0)
 ```
 ---
 ## Questão 5
-```assembly
+```
 beq	$s1, $s2, label
 ```
 
@@ -163,13 +163,12 @@ Como o bit mais significativo corresponde ao 33º bit, este perde-se como sendo 
 
 ---
 ## Questão 6
-```assembly
-		.data
+```
+	.data
 met: 	.word M0, M1, M2, M3, M4...
-		.text
-		.globl main
-main:
-		...
+	.text
+	.globl main
+main:	...
 ```
 `la $s0, met`
 > instrução necessária para carregar em algum registrador o endereço base da *string* contendo os M's;
@@ -185,9 +184,9 @@ main:
 
 Tomando o segundo exemplo, que apresenta uma resposta válida (correta):
 
-```assembly
-0x3C01FACE
-0x8C290000
+```
+	0x3C01FACE
+	0x8C290000
 ```
 desmembrando os 6 primeiros bits da primeira instrução temos:  
 
@@ -223,13 +222,13 @@ o que indica que trata-se da seguinte instruçõa:
 
 de maneira que o conjunto total de instruções é dado por:
 
-```assembly
+```
 lui	$at,0(FACE)
 ori	$t1,0($at)
 ``` 
 Este conjunto de instruções carrega em `$t1` o endereço `0xFACE0000`, que pode corresponder ao *label* FACE2020. Ou seja, representa a seguinte pseudo-instrução:
 
-```assembly
+```
 la	$t1,FACE2020
 ``` 
 (rever resolução da questão)
@@ -255,128 +254,128 @@ $ii.$ **Endereço mínimo:**
 ---
 ## Questão 9
 
-```assembly
-func:	addi $sp,$sp,-12	#1 #f == func
-		sw $ra,8($sp)		#2
-		sw $s0,4($sp)		#3
-		sw $a0,0($sp)		#4
-		bne $a0,$zero,test	#5
-		add $v0,$zero,$zero	#6
-		addi $sp,$sp,12		#7
-		jr $ra			#8
+```
+f:	addi $sp,$sp,-12	#1 
+	sw $ra,8($sp)		#2
+	sw $s0,4($sp)		#3
+	sw $a0,0($sp)		#4
+	bne $a0,$zero,test	#5
+	add $v0,$zero,$zero	#6
+	addi $sp,$sp,12		#7
+	jr $ra			#8
 test:	bne $a0,1,gen		#9
-		addi $v0,$zero,1	#10
-		addi $sp,$sp,12		#11
-		jr $ra			#12
+	addi $v0,$zero,1	#10
+	addi $sp,$sp,12		#11
+	jr $ra			#12
 gen:	addi $a0,$a0,-1		#13
-		jal f			#14
-		add $s0,$v0,$zero	#15
-		addi $a0,$a0,-1		#16
-		jal f			#17
-		add $v0,$v0,$s0		#18
-		lw $a0,0($sp)		#19
-		lw $s0,4($sp)		#20
-		lw $ra,8($sp)		#21
-		addi $sp,$sp,12		#22
-		jr $ra			#23
+	jal f			#14
+	add $s0,$v0,$zero	#15
+	addi $a0,$a0,-1		#16
+	jal f			#17
+	add $v0,$v0,$s0		#18
+	lw $a0,0($sp)		#19
+	lw $s0,4($sp)		#20
+	lw $ra,8($sp)		#21
+	addi $sp,$sp,12		#22
+	jr $ra			#23
 ```
 
 Todos os blocos que não levam ao desvio do fluxo de execução podem ser considerar blocos básicos, assim:
 
-```assembly
-		add $v0,$zero,$zero	#6
-		addi $sp,$sp,12		#7
-		jr $ra			#8
+```
+	add $v0,$zero,$zero	#6
+	addi $sp,$sp,12		#7
+	jr $ra			#8
 ```
 
-```assembly
+```
 test:	bne $a0,1,gen		#9
 ```
-```assembly
-		addi $v0,$zero,1	#10
-		addi $sp,$sp,12		#11
-		jr $ra			#12
 ```
-```assembly
+	addi $v0,$zero,1	#10
+	addi $sp,$sp,12		#11
+	jr $ra			#12
+```
+```
 gen:	addi $a0,$a0,-1		#13
-		jal f			#14
+	jal f			#14
 ```
-```assembly
-		add $s0,$v0,$zero	#15
-		addi $a0,$a0,-1		#16
-		jal f			#17
+```
+	add $s0,$v0,$zero	#15
+	addi $a0,$a0,-1		#16
+	jal f			#17
 ```
 constituem blocos básicos, pois a última instrução refere-se a uma instrução condicional (teste de registrador) com possível salto.
 
 $i.$ para **n = 0:**
-```assembly
-func:	addi $sp,$sp,-12	#1 #f == func
-		sw $ra,8($sp)		#2
-		sw $s0,4($sp)		#3
-		sw $a0,0($sp)		#4
-		bne $a0,$zero,test	#5
-		add $v0,$zero,$zero	#6
-		addi $sp,$sp,12		#7
-		jr $ra			#8
+```
+f:	addi $sp,$sp,-12	#1
+	sw $ra,8($sp)		#2
+	sw $s0,4($sp)		#3
+	sw $a0,0($sp)		#4
+	bne $a0,$zero,test	#5
+	add $v0,$zero,$zero	#6
+	addi $sp,$sp,12		#7
+	jr $ra			#8
 ```
 
 $ii.$ para **n = 1:**
-```assembly
-func:	addi $sp,$sp,-12	#1 #f == func
-		sw $ra,8($sp)		#2
-		sw $s0,4($sp)		#3
-		sw $a0,0($sp)		#4
-		bne $a0,$zero,test	#5
+```
+f:	addi $sp,$sp,-12	#1 
+	sw $ra,8($sp)		#2
+	sw $s0,4($sp)		#3
+	sw $a0,0($sp)		#4
+	bne $a0,$zero,test	#5
 test:	bne $a0,1,gen		#9
-		addi $v0,$zero,1	#10
-		addi $sp,$sp,12		#11
-		jr $ra			#12
+	addi $v0,$zero,1	#10
+	addi $sp,$sp,12		#11
+	jr $ra			#12
 ```
 
 Lembrando que a instrução `bne $a0,1,gen` é uma pseudo-instrução, separada em:
 
-```assembly
+```
 addi $at,$zero,0x00000001
 bne $at,$a0,gen
 ```
 uma vez que não é possível passar dois termos constantes à uma instrução
 
 $iii.$ para **n = 2:**
-```assembly
-func:	addi $sp,$sp,-12	#1 #f == func
-		sw $ra,8($sp)		#2
-		sw $s0,4($sp)		#3
-		sw $a0,0($sp)		#4
-		bne $a0,$zero,test	#5
+```
+f:	addi $sp,$sp,-12	#1 
+	sw $ra,8($sp)		#2
+	sw $s0,4($sp)		#3
+	sw $a0,0($sp)		#4
+	bne $a0,$zero,test	#5
 test:	bne $a0,1,gen		#9
 gen:	addi $a0,$a0,-1		#13
-		jal f			#14
-func:	addi $sp,$sp,-12	#1 #f == func
-		sw $ra,8($sp)		#2
-		sw $s0,4($sp)		#3
-		sw $a0,0($sp)		#4
-		bne $a0,$zero,test	#5
+	jal f			#14
+f:	addi $sp,$sp,-12	#1 
+	sw $ra,8($sp)		#2
+	sw $s0,4($sp)		#3
+	sw $a0,0($sp)		#4
+	bne $a0,$zero,test	#5
 test:	bne $a0,1,gen		#9
-		addi $v0,$zero,1	#10
-		addi $sp,$sp,12		#11
-		jr $ra			#12
-		add $s0,$v0,$zero	#15
-		addi $a0,$a0,-1		#16
-		jal f			#17
+	addi $v0,$zero,1	#10
+	addi $sp,$sp,12		#11
+	jr $ra			#12
+	add $s0,$v0,$zero	#15
+	addi $a0,$a0,-1		#16
+	jal f			#17
 func:	addi $sp,$sp,-12	#1 #f == func
-		sw $ra,8($sp)		#2
-		sw $s0,4($sp)		#3
-		sw $a0,0($sp)		#4
-		bne $a0,$zero,test	#5
-		add $v0,$zero,$zero	#6
-		addi $sp,$sp,12		#7
-		jr $ra			#8
-		add $v0,$v0,$s0		#18
-		lw $a0,0($sp)		#19
-		lw $s0,4($sp)		#20
-		lw $ra,8($sp)		#21
-		addi $sp,$sp,12		#22
-		jr $ra			#23
+	sw $ra,8($sp)		#2
+	sw $s0,4($sp)		#3
+	sw $a0,0($sp)		#4
+	bne $a0,$zero,test	#5
+	add $v0,$zero,$zero	#6
+	addi $sp,$sp,12		#7
+	jr $ra			#8
+	add $v0,$v0,$s0		#18
+	lw $a0,0($sp)		#19
+	lw $s0,4($sp)		#20
+	lw $ra,8($sp)		#21
+	addi $sp,$sp,12		#22
+	jr $ra			#23
 ```
 Como a instrução `bne $a0,1,gen` se repete duas vezes, conta-se todas as linhas de instrução executadas, subtrai-se duas e soma-se 4.
 
@@ -384,63 +383,64 @@ Como a instrução `bne $a0,1,gen` se repete duas vezes, conta-se todas as linha
 ---
 ## Questão 10
 
-```assembly
+```
 funct:	add $sp,$sp,-20
-		sw $ra,16($sp)
-		sw $s0,12($sp)
-		sw $s1,8($sp)
-		sw $s2,4($sp)
-		sw $s3,0($sp)
-		move $s0,$a0
-		move $s1,$a1
-		move $s2,$a2
-		move $s3,$a3
-		move $a0,$a3
-		jal funct
-		move $a0,$v0
-		add $a1,$s0,$s2
-		jal funct
-		lw $ra,16($sp)
-		lw $s0,12($sp)
-		lw $s1,8($sp)
-		lw $s2,4($sp)
-		lw $s3,0($sp)
-		addi $sp,$sp,20
-		jr $ra
+	sw $ra,16($sp)
+	sw $s0,12($sp)
+	sw $s1,8($sp)
+	sw $s2,4($sp)
+	sw $s3,0($sp)
+	move $s0,$a0
+	move $s1,$a1
+	move $s2,$a2
+	move $s3,$a3
+	move $a0,$a3
+	jal funct
+	move $a0,$v0
+	add $a1,$s0,$s2
+	jal funct
+	lw $ra,16($sp)
+	lw $s0,12($sp)
+	lw $s1,8($sp)
+	lw $s2,4($sp)
+	lw $s3,0($sp)
+	addi $sp,$sp,20
+	jr $ra
 ```
 ---
 # Extra questions
 ## Chapter 2-31
 
-```assembly
+```
 funct:	addi $t0,$zero,1
-		addi $a0,$zero,6
-		jal fib
-		nop
-		j end
+	addi $a0,$zero,6
+	jal fib
+	nop
+	j end
 fib:	beq $a0,$zero,zero
-		beq $a0,$t0,one
-		addi $sp,$sp,-4
-		sw $ra,0($sp)
-		addi $a0,$a0,-1
+	beq $a0,$t0,one
+	addi $sp,$sp,-4
+	sw $ra,0($sp)
+	addi $a0,$a0,-1
 	
-		jal fib
+	jal fib
 
-		lw $ra,0($sp)
-		add $sp,$sp,4
-		addi $t1,$v1,0
-		add $v1,$v1,$v0
-		addi $v0,$t1,0
-		jr $ra 	
+	lw $ra,0($sp)
+	add $sp,$sp,4
+	addi $t1,$v1,0
+	add $v1,$v1,$v0
+	addi $v0,$t1,0
+	jr $ra 	
 zero:	addi $v0,$zero,0
-		jr $ra
+	jr $ra
 one:	addi $v1,$zero,1
-		jr $ra
+	jr $ra
 end:	nop
-
 ```
 
 Termo geral da sequência de Fibonacci:
+
+https://render.githubusercontent.com/render/math?math=F_n = \dfrac{\phi^n - \left(1-\phi\right)^n}{\sqrt{5}}\qquad\phi = \dfrac{1 + \sqrt{5}}{2} \simeq 1,618034....
 
 $$
 F_n = \dfrac{\phi^n - \left(1-\phi\right)^n}{\sqrt{5}}\qquad\phi = \dfrac{1 + \sqrt{5}}{2} \simeq 1,618034....
