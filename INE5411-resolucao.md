@@ -53,11 +53,7 @@ jr	$ra
 * **opcode**: refere-se ao número total de instruções gerais (tipo R, I e J) da arquitetura. Como o MIPS possui 6 bits, é previsto na arquitetura <img src="https://render.githubusercontent.com/render/math?math=2^6"> operações;  
 * **rs, rt, rd**: definidos de acordo com a necessidade e melhor conveniência da arquitetuta. No caso do MIPS, 5 bits;
 * **shamt**: é relacionando ao tamanho dos registradores. Como na arquiterura original do MIPS o regitrador do MIPS possui 32 bits, o tamanho de shamt fica definido como sendo:
-<p align="center">
- <img src="https://render.githubusercontent.com/render/math?math=\text{log}_{2}{(32)} = 5"> 
-</p>
-bits;
-
+ <img align="center" src="https://render.githubusercontent.com/render/math?math=\text{log}_{2}{(32)} = 5"> bits;
 * **funct**: se refere ao número de instruções do tipo R que a arquitetuta do MIPS apresenta. Assim, como há 6 bits dedicados para esse campo, podem haver até <img src="https://render.githubusercontent.com/render/math?math=2^6"> instruções dedicadas à instruções do tipo R;
 
 _i_. **Extensão do número de registradores: de 32 para 128**: unclear;
@@ -244,14 +240,14 @@ la	$t1,FACE2020
 ## Questão 8 
 Para as instruções do tipo J, o immediate é multiplicado por 4 (deslocamento de 2 bits) e concatenado com os 4 bits mais significativos do PC atual.
 
-i. **Endereço máximo:**
+_i_. **Endereço máximo:**
 
 	PC = MSB(PC, 4 bits) & (11.1111.1111.1111.1111.11111.1111b)<<2
 	PC = MSB(PC, 4 bits) & (1111.1111.1111.1111.1111.1111.1100b)
 	PC = MSB(PC, 4 bits) & 0xFFFFFFC
 	PC = 0xFFFFFFFC
 	
-ii. **Endereço mínimo:** 
+_ii_. **Endereço mínimo:** 
 
 	PC = MSB(PC, 4 bits) & (00.0000.0000.0000.0000.0000.0000b)<<2
 	PC = MSB(PC, 4 bits) & (0000.0000.0000.0000.0000.0000.0000b)
@@ -369,7 +365,7 @@ test:	bne $a0,1,gen		#9
 	add $s0,$v0,$zero	#15
 	addi $a0,$a0,-1		#16
 	jal f			#17
-func:	addi $sp,$sp,-12	#1 #f == func
+f:	addi $sp,$sp,-12	#1
 	sw $ra,8($sp)		#2
 	sw $s0,4($sp)		#3
 	sw $a0,0($sp)		#4
