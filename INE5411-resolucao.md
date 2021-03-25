@@ -1,7 +1,7 @@
 # INE 5411 - Organização de computadores I: resolução do compêndio de provas de 2020
 
 #### Tabela de conteúdos
-1. [INE 5411](#ine5411)
+1. [INE 5411](#ine-5411---organiza%C3%A7%C3%A3o-de-computadores-i-resolu%C3%A7%C3%A3o-do-comp%C3%AAndio-de-provas-de-2020)
 	- [Questão 1](#questão-1)
 	- [Questão 2](#questão-2)
 	- [Questão 3](#questão-3)
