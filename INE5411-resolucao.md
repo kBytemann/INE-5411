@@ -1,8 +1,10 @@
-# INE 5411 - Organização de computadores I: resolução do compêndio de provas de 2020
+# INE 5411: 2020 tests compendium resolution
 
-#### Tabela de conteúdos
-1. [INE 5411](#ine-5411---organiza%C3%A7%C3%A3o-de-computadores-i-resolu%C3%A7%C3%A3o-do-comp%C3%AAndio-de-provas-de-2020)
-	- [Questão 1](#questão-1)
+<details>
+<summary>Tabela de questões </summary>
+
+* [Questions answers](#questions-answers)
+	- [Questão 1](#questão-1) 
 	- [Questão 2](#questão-2)
 	- [Questão 3](#questão-3)
 	- [Questão 4](#questão-4)
@@ -12,19 +14,23 @@
 	- [Questão 8](#questão-8)
 	- [Questão 9](#questão-9)
 	- [Questão 10](#questão-10)
+* [Extra questions](#extra-questions)
+	- [Chapter 2-31](#chapter-2-31)
 
+</details>
 
 ### Disclaim
 Esse gabarito foi formulado por um grupo de estudantes, e não corresponde à resolução oficial. Também não é composto pela resolução de todas as questões (em um primeiro momento), mas servindo como orientação para resolução e aperfeiçoamento da percepção do que pode ser encontrado nas provas referentes à matéria de Organização de Computadores I. 
+
 **IMPORTANTE:** não partir do pressuposto que o estudo deste material será suficiente para estar preparado para as provas!
 
----
+# Questions answers
 ## Questão 1
 ```assembly
-	div	$a0, $a1
-	mfhi	$v0
-	sll	$v0, $v0, 2
-	jr	$ra
+div	$a0, $a1
+mfhi	$v0
+sll	$v0, $v0, 2
+jr	$ra
 ```
 `div	$a0, $a1`
 > realiza a divisão do valor passado em `$a0` por `$a1`, mantendo apenas o quociente
@@ -55,23 +61,23 @@ $iii.$ **Extensão ISA: o número de instruções foi quadriplicado, mas de form
 
 Assim ao final da nova mudança no tamanho da arquitetura temos que:
 
-| | opcode |rs |rt | rd | shamt | funct |
-| --- | --- | --- | --- | --- | --- | --- |
-| original | 6 bits | 5 bits | 5 bits | 5 bits | 5 bits | 6 bits |
-| nova | 7 bits | 7 bits | 7 bits | 7 bits | 7 bits | 7 bits |
+||opcode|rs|rt|rd|shamt|funct |
+|---|---|---|---|---|---|---|
+|original|6 bits|5 bits|5 bits|5 bits|5 bits|6 bits|
+|nova|7 bits|7 bits|7 bits|7 bits|7 bits|7 bits|
 
 Sendo que a nova instrução tem 42 bits. Como as instruções do tipo I seguem a cosntrução:
 
-| opcode | rs | rt | immediate |
-| ------ | --- | --- | --- | 
-| 6 bits | 5 bits | 5 bits | 16 bits |
+|opcode|rs|rt|immediate|
+|---|---|---|---|---|---|
+|6 bits|5 bits|5 bits|16 bits|
 
 temos que a nova instrução I fica como sendo:
 
-| | opcode | rs | rt | immediate |
-| ---------- | --- | --- | --- | --- |
-| original | 6 bits | 5 bits | 5 bits | 16 bits |
-| nova | 7 bits | 7 bits | 7 bits | ?? bits |
+||opcode|rs|rt|immediate|
+|---|---|---|---|---|---|---|
+|original|6 bits|5 bits|5 bits|16 bits|
+|original|7 bits|7 bits|7 bits|?? bits|
 
 sendo que o número de bits definido no campo **immediate** é dado por:
 
@@ -79,9 +85,30 @@ sendo que o número de bits definido no campo **immediate** é dado por:
 	immediate: 42 - [7 + 2.7] 
 	immediate: 42 - 21 = 21 bits
 ---
+## Questão 3
+*"O processadores X e Y são compatíveis com ARMv8 e x86-64, respectivamente. Suponha que um mesmo programa escrito na linguagem C foi compilado para executar em X e Y, usando o mesmo compilador e exatamente as mesmas opções (flags) de compilação. Sabe-se que as frequências de X e Y são, respectivamente, 2GHz e 4GHz. Nestas condições, qual(is) das seguintes afirmações é (são) verdadeira(s)?"*
+
+- [ ] O número de instruções executadas é o mesmo em X e Y.
+- [ ] O número de instruções executadas em Y é 2 vezes maior que em X;
+- [x] Nada se pode afirmar sobre o número de instruções executadas;
+> como tratam-se de duas arquiteturas distintas, o número de instruções geradas variará conforme a ISA.
+- [ ] O número de instruções por segundo é o mesmo em X e Y;
+- [ ] O número de instruções por segundo é 2 vezes maior em Y do que em X.
+- [x] Nada se pode afirmar sobre o número de instruções por segundo.
+> não só por tratar-se de arquiteturas diferentes, mas a frequência de operação de ambos os processadores é distinto, o que impede de se afirmar ou calcular a quantidade de instruções lidas por segundo.
+- [ ] O número de ciclos por segundo é o mesmo em X e Y.
+- [x] O número de ciclos por segundo é 2 vezes maior em Y do que em X.
+> essa afirmação depende exclusivamente da frequência de operação. Sendo a segunda o dobro da primeira, ela se encontra verdadeira.
+- [ ] Nada se pode afirmar sobre o número de ciclos por segundo;
+- [ ] O número de ciclos por instrução é o mesmo em X e Y;
+- [ ] O número de ciclos por instrução é 2 vezes menor em Y;
+- [X] Nada se pode afirmar sobre o número de ciclos por instrução;
+> essa grandeza depende do CPI, que novamente depende da arquitetura, sendo assim, não é possível se afirmar a relação entre ambos.
+
+---
 ## Questão 4
 
-(incompleto até 22/03/2021 17:00)
+
 * Código **A**
 ```assembly
 lock: 	addi $t0,$zero,1 
@@ -128,13 +155,19 @@ A instrução `beq`  é do tipo I, apresentando assim 16 bits de valor imediato 
 
 Como o bit mais significativo corresponde ao 33º bit, este perde-se como sendo um sinal de *overflow*.
 
+*Plus:* caso fosse desejado o endereço máximo a ser saltado, o valorde immediate seria `0x7FFF`, que após o processo de deslocamento lógico resultaria em `0x1FFFC`. Em resumo:
+
+||Máximo|Mínimo|
+|---|:---:|:---:|
+| PC' |PC + 4 + `0x1FFFC`|PC + 4 + `0xFFFE0000`|
+
 ---
 ## Questão 6
 ```assembly
-	.data
+		.data
 met: 	.word M0, M1, M2, M3, M4...
-	.text
-	.globl main
+		.text
+		.globl main
 main:
 		...
 ```
@@ -150,7 +183,7 @@ main:
 ---
 ## Questão 7
 
-Tomando o segundo exexmplo, que apresenta uma resposta válida (correta):
+Tomando o segundo exemplo, que apresenta uma resposta válida (correta):
 
 ```assembly
 0x3C01FACE
@@ -165,7 +198,7 @@ desmembrando os 6 primeiros bits da primeira instrução temos:
 Analisando o opcode, vemos que trata-se de uma instrução do tipo `lui` e que é uma instrução do tipo I, logo:
 
 ||opcode|rs|rt|immediate|
-|---|---|---|---|---|
+|---|---|---|---|---|---|---|
 |binário|`001111`|`00000`|`00001`|`1111101011001110`|
 |hexa|`0F`|`00`|`01`|`FACE`|
 
@@ -181,7 +214,7 @@ desmembrando os 6 primeiros bits da segunda instrução temos:
 sendo assim, trata-se da instrução `ori`, e assim a instrução completa fica como sendo:
 
 ||opcode|rs|rt|immediate|
-|---|---|---|---|---|
+|---|---|---|---|---|---|---|
 |binário|`001101`|`00001`|`01001`|`0000000000000000`|
 |hexa|`0D`|`01`|`09`|`0000`|
 
@@ -191,13 +224,13 @@ o que indica que trata-se da seguinte instruçõa:
 de maneira que o conjunto total de instruções é dado por:
 
 ```assembly
-	lui	$at,0(FACE)
-	ori	$t1,0($at)
+lui	$at,0(FACE)
+ori	$t1,0($at)
 ``` 
 Este conjunto de instruções carrega em `$t1` o endereço `0xFACE0000`, que pode corresponder ao *label* FACE2020. Ou seja, representa a seguinte pseudo-instrução:
 
 ```assembly
-	la	$t1,FACE2020
+la	$t1,FACE2020
 ``` 
 (rever resolução da questão)
 
@@ -221,4 +254,198 @@ $ii.$ **Endereço mínimo:**
 	
 ---
 ## Questão 9
-(incompleto até 22/03/2021 17:00)
+
+```assembly
+func:	addi $sp,$sp,-12	#1 #f == func
+		sw $ra,8($sp)		#2
+		sw $s0,4($sp)		#3
+		sw $a0,0($sp)		#4
+		bne $a0,$zero,test	#5
+		add $v0,$zero,$zero	#6
+		addi $sp,$sp,12		#7
+		jr $ra			#8
+test:	bne $a0,1,gen		#9
+		addi $v0,$zero,1	#10
+		addi $sp,$sp,12		#11
+		jr $ra			#12
+gen:	addi $a0,$a0,-1		#13
+		jal f			#14
+		add $s0,$v0,$zero	#15
+		addi $a0,$a0,-1		#16
+		jal f			#17
+		add $v0,$v0,$s0		#18
+		lw $a0,0($sp)		#19
+		lw $s0,4($sp)		#20
+		lw $ra,8($sp)		#21
+		addi $sp,$sp,12		#22
+		jr $ra			#23
+```
+
+Todos os blocos que não levam ao desvio do fluxo de execução podem ser considerar blocos básicos, assim:
+
+```assembly
+		add $v0,$zero,$zero	#6
+		addi $sp,$sp,12		#7
+		jr $ra			#8
+```
+
+```assembly
+test:	bne $a0,1,gen		#9
+```
+```assembly
+		addi $v0,$zero,1	#10
+		addi $sp,$sp,12		#11
+		jr $ra			#12
+```
+```assembly
+gen:	addi $a0,$a0,-1		#13
+		jal f			#14
+```
+```assembly
+		add $s0,$v0,$zero	#15
+		addi $a0,$a0,-1		#16
+		jal f			#17
+```
+constituem blocos básicos, pois a última instrução refere-se a uma instrução condicional (teste de registrador) com possível salto.
+
+$i.$ para **n = 0:**
+```assembly
+func:	addi $sp,$sp,-12	#1 #f == func
+		sw $ra,8($sp)		#2
+		sw $s0,4($sp)		#3
+		sw $a0,0($sp)		#4
+		bne $a0,$zero,test	#5
+		add $v0,$zero,$zero	#6
+		addi $sp,$sp,12		#7
+		jr $ra			#8
+```
+
+$ii.$ para **n = 1:**
+```assembly
+func:	addi $sp,$sp,-12	#1 #f == func
+		sw $ra,8($sp)		#2
+		sw $s0,4($sp)		#3
+		sw $a0,0($sp)		#4
+		bne $a0,$zero,test	#5
+test:	bne $a0,1,gen		#9
+		addi $v0,$zero,1	#10
+		addi $sp,$sp,12		#11
+		jr $ra			#12
+```
+
+Lembrando que a instrução `bne $a0,1,gen` é uma pseudo-instrução, separada em:
+
+```assembly
+addi $at,$zero,0x00000001
+bne $at,$a0,gen
+```
+uma vez que não é possível passar dois termos constantes à uma instrução
+
+$iii.$ para **n = 2:**
+```assembly
+func:	addi $sp,$sp,-12	#1 #f == func
+		sw $ra,8($sp)		#2
+		sw $s0,4($sp)		#3
+		sw $a0,0($sp)		#4
+		bne $a0,$zero,test	#5
+test:	bne $a0,1,gen		#9
+gen:	addi $a0,$a0,-1		#13
+		jal f			#14
+func:	addi $sp,$sp,-12	#1 #f == func
+		sw $ra,8($sp)		#2
+		sw $s0,4($sp)		#3
+		sw $a0,0($sp)		#4
+		bne $a0,$zero,test	#5
+test:	bne $a0,1,gen		#9
+		addi $v0,$zero,1	#10
+		addi $sp,$sp,12		#11
+		jr $ra			#12
+		add $s0,$v0,$zero	#15
+		addi $a0,$a0,-1		#16
+		jal f			#17
+func:	addi $sp,$sp,-12	#1 #f == func
+		sw $ra,8($sp)		#2
+		sw $s0,4($sp)		#3
+		sw $a0,0($sp)		#4
+		bne $a0,$zero,test	#5
+		add $v0,$zero,$zero	#6
+		addi $sp,$sp,12		#7
+		jr $ra			#8
+		add $v0,$v0,$s0		#18
+		lw $a0,0($sp)		#19
+		lw $s0,4($sp)		#20
+		lw $ra,8($sp)		#21
+		addi $sp,$sp,12		#22
+		jr $ra			#23
+```
+Como a instrução `bne $a0,1,gen` se repete duas vezes, conta-se todas as linhas de instrução executadas, subtrai-se duas e soma-se 4.
+
+
+---
+## Questão 10
+
+```assembly
+funct:	add $sp,$sp,-20
+		sw $ra,16($sp)
+		sw $s0,12($sp)
+		sw $s1,8($sp)
+		sw $s2,4($sp)
+		sw $s3,0($sp)
+		move $s0,$a0
+		move $s1,$a1
+		move $s2,$a2
+		move $s3,$a3
+		move $a0,$a3
+		jal funct
+		move $a0,$v0
+		add $a1,$s0,$s2
+		jal funct
+		lw $ra,16($sp)
+		lw $s0,12($sp)
+		lw $s1,8($sp)
+		lw $s2,4($sp)
+		lw $s3,0($sp)
+		addi $sp,$sp,20
+		jr $ra
+```
+---
+# Extra questions
+## Chapter 2-31
+
+```assembly
+funct:	addi $t0,$zero,1
+		addi $a0,$zero,6
+		jal fib
+		nop
+		j end
+fib:	beq $a0,$zero,zero
+		beq $a0,$t0,one
+		addi $sp,$sp,-4
+		sw $ra,0($sp)
+		addi $a0,$a0,-1
+	
+		jal fib
+
+		lw $ra,0($sp)
+		add $sp,$sp,4
+		addi $t1,$v1,0
+		add $v1,$v1,$v0
+		addi $v0,$t1,0
+		jr $ra 	
+zero:	addi $v0,$zero,0
+		jr $ra
+one:	addi $v1,$zero,1
+		jr $ra
+end:	nop
+
+```
+
+Termo geral da sequência de Fibonacci:
+
+$$
+F_n = \dfrac{\phi^n - \left(1-\phi\right)^n}{\sqrt{5}}\qquad\phi = \dfrac{1 + \sqrt{5}}{2} \simeq 1,618034....
+$$
+
+|Termo|0|1|2|3|4|5|6|7|8|9|
+|---|---|---|---|---|---|---|---|---|---|---|
+|Valor|0|1|1|2|3|5|8|13|21|34|
