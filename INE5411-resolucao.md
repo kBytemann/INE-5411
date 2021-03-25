@@ -440,10 +440,10 @@ end:	nop
 
 Termo geral da sequência de Fibonacci:
 
-https://render.githubusercontent.com/render/math?math=F_n = \dfrac{\phi^n - \left(1-\phi\right)^n}{\sqrt{5}}\qquad\phi = \dfrac{1 + \sqrt{5}}{2} \simeq 1,618034....
+<img src="https://render.githubusercontent.com/render/math?math=F_n = \dfrac{\phi^n - \left(1-\phi\right)^n}{\sqrt{5}}\qquad\phi = \dfrac{1 + \sqrt{5}}{2} \simeq 1,618034...">
 
 $$
-F_n = \dfrac{\phi^n - \left(1-\phi\right)^n}{\sqrt{5}}\qquad\phi = \dfrac{1 + \sqrt{5}}{2} \simeq 1,618034....
+F_n = \dfrac{\phi^n - \left(1-\phi\right)^n}{\sqrt{5}}\qquad\phi = \dfrac{1 + \sqrt{5}}{2} \simeq 1,618034...
 $$
 
 |Termo|0|1|2|3|4|5|6|7|8|9|
