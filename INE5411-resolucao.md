@@ -1,9 +1,9 @@
 # INE 5411 - Organização de computadores I: resolução do compêndio de provas de 2020
 
 #### Tabela de conteúdos
-[Questão 1](##questao1)
-[Questão 2](##questao2)
-[Questão 3](##questao3)
+1. [INE 5411](#ine5411)
+ - [Questão 1](#questao-1)
+
 
 ### Disclaim
 Esse gabarito foi formulado por um grupo de estudantes, e não corresponde à resolução oficial. Também não é composto pela resolução de todas as questões (em um primeiro momento), mas servindo como orientação para resolução e aperfeiçoamento da percepção do que pode ser encontrado nas provas referentes à matéria de Organização de Computadores I. 
