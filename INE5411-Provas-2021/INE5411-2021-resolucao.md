@@ -40,7 +40,7 @@ Tendo em vista que ambas as empresas licenciaram a mesma ISA para seusprocessado
 > $$
 >> Demais questões seguem o mesmoo raciocínio. 
 
-[topo](###index)
+[topo](#index)
 
 ---
 ## Questão 2
