@@ -1,7 +1,7 @@
 # Laboratório 5
 
 ## Questão 1
-Copie o arquivo `experimento1-codigo-base.asm` (fornecido) para um arquivo `experimento1.asm`, monte-o e insira *breakpoints* nas instruções identificadas por `MARCA1` e `MARCA2`. Execute-o e observe o conteúdo de $a1 nos seguintes instantes:
+Copie o arquivo `experimento1-codigo-base.asm` (fornecido) para um arquivo `experimento1.asm`, monte-o e insira *breakpoints* nas instruções identificadas por `MARCA1` e `MARCA2`. Execute-o e observe o conteúdo de `$a1` nos seguintes instantes:
 
 * Quando a `MARCA1` é atingida pela **primeira** vez.
 * Quando a `MARCA1` é atingida pela **segunda** vez.
