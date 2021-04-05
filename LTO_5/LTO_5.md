@@ -138,9 +138,9 @@ Neste cenário, qual(is) das seguintes afirmações é (são) verdadeira(s)?
 >  * **Experimento 6**
 > ```
 > for2tst: 	slti $t0,$s1,0  
->				bne  $t0,$zero,exit2 
->				sll  $t1,$s1,2   
->				add  $t2,$s2,$t1
+>			bne  $t0,$zero,exit2 
+>			sll  $t1,$s1,2   
+>			add  $t2,$s2,$t1
 > ```
 > O valor do endereço base do vetor está em `$s2` e não mais em `$a0`, por isso deve ser subtituído nesta instrução
 > > Nem todos os registradores são deviadamente armazenados na pilha de maneira que se atenda a convenção de chamada, pelo menos assim o é com a função **sort**, já que como função chamadora, ela deveria ser responsável por salvar os valores dos registradores `$a0` ~ `$a3`, o que não se observa;
