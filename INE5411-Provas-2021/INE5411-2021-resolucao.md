@@ -534,6 +534,16 @@ bne $t0, $zero, NAO_ENTRA_NAS_CHAVES
 ---
 ## Questão 17
 
+<details>
+<summary>Convenções de chamada</summary>
+
+> **Divisão de responsabilidades**
+> * Procedimento **chamador**: é responsável por preservar os registradores `$a0`-`$a1` e `$t0`-`$t9`. Devem ser preservados apenas os registradores cujos valores serão usados no corpo do procedimento chamador depois da chamada.
+> * Procedimento **chamado**: é responsável por preservar os registradores `$s0`-`$s7`. Devem ser preservados apenas os registradores cujos valores serão usados no corpo do procedimento chamado. Deve também preservar o registrador `$ra`, exceto se for um procedimento-folha. Salvamento e restauração de valores preservados
+> * Procedimento **chamador**: os conteúdos de registradores `$a0`-`$a1` ou `$t0`-`$t9` a serem preservados são normalmente copiados em registradores salvos (`$s0`-`$s7`), pois estes são preservados através de chamadas (em geral isso é feito apenas para os registradores `$a0`-`$a1`, pois se houvesse a necessidade de preservar registradores `$t0`-`$t9` seria mais eficiente ter alocado os conteúdos diretamente em registradores salvos). O salvamento deve ser feito antes de se efetuar a chamada. Alternativamente, tais conteúdos podem ser salvos na pilha.
+> * Procedimento **chamado**: o conteúdo dos registradores `$s0`-`$s7` ou `$ra` a serem preservados são armazenados na pilha. O salvamento deve ser feito antes de se iniciar o corpo do procedimento (ou seja, antes dos valores serem  alterados). A restauração deve ser feita antes de retornar ao procedimento chamador
+</details>
+
 _i._ O procedimento abaixo será ligado a outros que obedecem a convenção de chamadas do MIPS32. Nestas condições, qual das seguintes afirmações é verdadeira?
 
 ```
@@ -551,19 +561,62 @@ _ii._ O procedimento abaixo será ligado a outros que obedecem a convenção de 
 
 ```
 f:	addi $sp,$sp,8
-		sw $ra,4($sp)
-		move $t0,$a2
-		jal g
-		add $v0,$v0,$t0
-		lw $ra,4($sp)
-		addi $sp,$sp,-8
-		jr $ra
+	sw $ra,4($sp)
+	move $t0,$a2
+	jal g
+	add $v0,$v0,$t0
+	lw $ra,4($sp)
+	addi $sp,$sp,-8
+	jr $ra
 ```
 |**Resposta**|4 instuções precisam ser modificadas e 2 instruções precisam ser incluída.|
 |---|---|
-> comentar quais instruções precisam ser incluídas e modificadas
 
+<details>
 
+<summary>Comentário da resposta</summary>
+
+---
+> <table>
+><tr>
+><td>
+>Enunciado:
+></td>
+><td>
+>Resposta:
+></td>
+></tr>
+><tr>
+><td>
+```
+f:	addi $sp,$sp,8
+	sw $ra,4($sp)
+	move $t0,$a2
+	jal g
+	add $v0,$v0,$t0
+	lw $ra,4($sp)
+	addi $sp,$sp,-8
+	jr $ra
+```
+></td>
+><td>
+```
+f:	addi $sp,$sp,12 -- modificada
+	sw $s0,8($sp)	-- adiocionada
+	sw $ra,4($sp)
+	move $s0,$a2	-- modificada
+	jal g
+	add $v0,$v0,$s0 -- modificada
+	lw $ra,4($sp)
+	lw $s0,8($sp)	--adicionada
+	addi $sp,$sp,-12	-- modificada
+	jr $ra
+```
+></td>
+></tr>
+> </table>
+
+</details>
 
 ---
 _iii._ O procedimento abaixo será ligado a outros que obedecem a convenção de chamadas do MIPS32. Nestas condições, qual das seguintes afirmações é verdadeira?
