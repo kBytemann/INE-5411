@@ -416,6 +416,7 @@ _iii._ Qual opção melhor representa o código compilado para o teste abaixo te
 		slt $t0,$s1,$s2
 		bne $t0,$zero,NAO_ENTRA_NAS_CHAVES
 ```
+---
 _iv._ Qual opção melhor representa o código compilado para o teste abaixo tendo em vistaque "a" e "b" estão armazenados nos registradores `$s1` e `$s2`?
 
 	if(a<=b){}
@@ -432,7 +433,7 @@ _iv._ Qual opção melhor representa o código compilado para o teste abaixo ten
 </td>
 <td>
 
-```assembly
+```
 slt $t0, $s2, $s1
 beq $t0, $zero, NAO_ENTRA_NAS_CHAVES
 ```
@@ -448,7 +449,7 @@ beq $t0, $zero, NAO_ENTRA_NAS_CHAVES
 </td>
 <td>
 
-```assembly
+```
 slt $t0, $s2, $s1
 bne $t0, $zero, NAO_ENTRA_NAS_CHAVES
 ```
@@ -463,7 +464,7 @@ bne $t0, $zero, NAO_ENTRA_NAS_CHAVES
 </td>
 <td>
 
-```assembly
+```
 bne $s1, $2, NAO_ENTRA_NAS_CHAVES
 ```
 
@@ -477,7 +478,7 @@ bne $s1, $2, NAO_ENTRA_NAS_CHAVES
 </td>
 <td>
 
-```assembly
+```
 slt $t0, $s1, $s2
 bne $t0, $zero, NAO_ENTRA_NAS_CHAVES
 ```
@@ -492,7 +493,7 @@ bne $t0, $zero, NAO_ENTRA_NAS_CHAVES
 </td>
 <td>
 
-```assembly
+```
 beq $s1, $s2, NAO_ENTRA_NAS_CHAVES
 ```
 
@@ -516,7 +517,7 @@ beq $s1, $s2, NAO_ENTRA_NAS_CHAVES
 </td>
 <td>
 
-```assembly
+```
 slt $t0, $s2, $s1
 bne $t0, $zero, NAO_ENTRA_NAS_CHAVES
 ```
