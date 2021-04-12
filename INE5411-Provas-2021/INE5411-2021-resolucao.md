@@ -548,13 +548,20 @@ _i._ O procedimento abaixo será ligado a outros que obedecem a convenção de c
 
 ```
 f:	sub $t0,$a0,$a3
-		sll $v0,$t0,0x1
-		add $v0,$a2,$v0
-		sub $v0,$v0,$a1
-		jr $ra
+	sll $v0,$t0,0x1
+	add $v0,$a2,$v0
+	sub $v0,$v0,$a1
+	jr $ra
 ```
+
+<details>
+<summary>Resposta</summary>
+
+---
 |**Resposta**|nenhuma instrução precisa ser modificada e nenhuma instrução precisa ser incluída.|
 |---|---|
+
+</details>
 
 ---
 _ii._ O procedimento abaixo será ligado a outros que obedecem a convenção de chamadas do MIPS32. Nestas condições, qual das seguintes afirmações é verdadeira?
@@ -569,14 +576,13 @@ f:	addi $sp,$sp,8
 	addi $sp,$sp,-8
 	jr $ra
 ```
-|**Resposta**|4 instuções precisam ser modificadas e 2 instruções precisam ser incluída.|
-|---|---|
 
 <details>
-
-<summary>Comentário da resposta</summary>
+<summary>Resposta</summary>
 
 ---
+**4 instruções precisam ser modificadas e 2 instruções precisam ser incluída.**
+
 > <table>
 ><tr>
 ><td>
@@ -628,14 +634,14 @@ f:	sub $s0,$a0,$a3
 		sub $v0,$v0,$a1
 		jr $ra
 ```
-|**Resposta**|2 instuções precisam ser modificadas e nenhuma instrução precisa ser incluída.|
-|---|---|
 
 <details>
-
-<summary>Comentário da resposta</summary>
+<summary>Resposta</summary>
 
 ---
+
+**2 instruções precisam ser modificadas e nenhuma instrução precisa ser incluída.**
+
 > <table>
 ><tr>
 ><td>
@@ -684,15 +690,15 @@ f:	addi $sp,$sp,8
 	addi $sp,$sp,-8
 	jr $ra
 ```
-|**Resposta**|2 instruções precisam ser modificadas e nenhuma instrução precisa ser incluída.|
-|---|---|
 
 <details>
 
-<summary>Comentário da resposta</summary>
+<summary>Resposta</summary>
 
-> Não fui capaz de visualizar quais instruções devem ser alteradas
 ---
+**2 instruções precisam ser modificadas e nenhuma instrução precisa ser incluída.**
+
+> >Não fui capaz de visualizar quais instruções devem ser alteradas
 > <table>
 ><tr>
 ><td>
