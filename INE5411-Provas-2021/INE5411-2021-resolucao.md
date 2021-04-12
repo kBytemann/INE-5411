@@ -631,28 +631,112 @@ f:	sub $s0,$a0,$a3
 |**Resposta**|2 instuções precisam ser modificadas e nenhuma instrução precisa ser incluída.|
 |---|---|
 
-> comentar quais instruções precisam ser modificadas
+<details>
+
+<summary>Comentário da resposta</summary>
+
+---
+> <table>
+><tr>
+><td>
+>Enunciado:
+></td>
+><td>
+>Resposta:
+></td>
+></tr>
+><tr>
+><td>
+```
+f:	sub $s0,$a0,$a3
+	sll $v0,$s0,0x1
+	add $v0,$a2,$v0
+	sub $v0,$v0,$a1
+	jr $ra
+```
+></td>
+><td>
+```
+f:	sub $t0,$a0,$a3	-- modificado
+	sll $v0,$t0,0x1	-- modificado
+	add $v0,$a2,$v0
+	sub $v0,$v0,$a1
+	jr $ra
+```
+></td>
+></tr>
+> </table>
+
+</details>
+
 ---
 _iv._ O procedimento abaixo será ligado a outros que obedecem a convenção de chamadas do MIPS32. Nestas condições, qual das seguintes afirmações é verdadeira?
 
 ```
 f:	addi $sp,$sp,8
-		sw $ra,4($sp)
-		sw $s0,0($sp)
-		move $s0,$a2
-		jal g
-		add $v0,$v0,$s0
-		lw $ra,4($sp)
-		lw $s0,0($sp)
-		addi $sp,$sp,-8
-		jr $ra
+	sw $ra,4($sp)
+	sw $s0,0($sp)
+	move $s0,$a2
+	jal g
+	add $v0,$v0,$s0
+	lw $ra,4($sp)
+	lw $s0,0($sp)
+	addi $sp,$sp,-8
+	jr $ra
 ```
-|**Resposta**|2 instuções precisam ser modificadas e nenhuma instrução precisa ser incluída.|
+|**Resposta**|2 instruções precisam ser modificadas e nenhuma instrução precisa ser incluída.|
 |---|---|
-> comentar quais instruções precisam ser modificadas
+
+<details>
+
+<summary>Comentário da resposta</summary>
+
+> Não fui capaz de visualizar quais instruções devem ser alteradas
+---
+> <table>
+><tr>
+><td>
+>Enunciado:
+></td>
+><td>
+>Resposta:
+></td>
+></tr>
+><tr>
+><td>
+```
+f:	addi $sp,$sp,8
+	sw $ra,4($sp)
+	sw $s0,0($sp)
+	move $s0,$a2
+	jal g
+	add $v0,$v0,$s0
+	lw $ra,4($sp)
+	lw $s0,0($sp)
+	addi $sp,$sp,-8
+	jr $ra
+```
+></td>
+><td>
+```
+f:	addi $sp,$sp,8
+	sw $ra,4($sp)
+	sw $s0,0($sp)
+	move $s0,$a2
+	jal g
+	add $v0,$v0,$s0
+	lw $ra,4($sp)
+	lw $s0,0($sp)
+	addi $sp,$sp,-8
+	jr $ra
+```
+></td>
+></tr>
+> </table>
+
+</details>
 
 [topo](#index)
-
 
 ---
 ## Questão 18
