@@ -35,7 +35,7 @@ Tendo em vista que ambas as empresas licenciaram a mesma ISA para seusprocessado
 **Resposta:** `1,22`
 
 > <p align="center">
-> <img src="https://render.githubusercontent.com/render/math?math=T=\dfrac{\text{CPI}_1}{f_1}\cdot\dfrac{f_2}{\text{CPI}_2}=\dfrac{\text{CPI}_1 \cdot f_2}{\text{CPI}_2 \cdot f_1} = 1,2195002">
+> <img src="https://render.githubusercontent.com/render/math?math=T= \dfrac{\text{CPI}_1}{f_1}\cdot\dfrac{f_2}{\text{CPI}_2}">
 > </p>
 >> Demais questões seguem o mesmoo raciocínio. 
 
