@@ -457,5 +457,5 @@ Teste de tabela com código abaixo:
 
 | Item | Código |
 | :------: | :---------: |
-| Código **A**|<pre lang="assembly">	lw \$s1,8($s0)<br>	sw \$s2,8(\$s1)</pre>|
-| Código **B**|<pre lang="assembly">	lw \$s1,8($s0)<br>	sw \$s2,8(\$s1)</pre>|
+| Código **A**|<pre lang="assembly">	lw \$s1,8($s0)<br />	sw \$s2,8(\$s1)</pre>|
+| Código **B**|<pre lang="assembly">	lw \$s1,8($s0)<br />	sw \$s2,8(\$s1)</pre>|
