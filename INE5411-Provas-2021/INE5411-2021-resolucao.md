@@ -34,10 +34,7 @@ Tendo em vista que ambas as empresas licenciaram a mesma ISA para seusprocessado
 
 **Resposta:** `1,22`
 
-
-> $$
-> T = \dfrac{\text{CPI}_1}{f_1}\cdot\dfrac{f_2}{\text{CPI}_2} = \dfrac{\text{CPI}_1 \cdot f_2}{\text{CPI}_2 \cdot f_1} = 1,2195002
-> $$
+> <img align="center" src="https://render.githubusercontent.com/render/math?math=T = \dfrac{\text{CPI}_1}{f_1}\cdot\dfrac{f_2}{\text{CPI}_2} = \dfrac{\text{CPI}_1 \cdot f_2}{\text{CPI}_2 \cdot f_1} = 1,2195002">
 >> Demais questões seguem o mesmoo raciocínio. 
 
 [topo](#index)
@@ -68,6 +65,9 @@ Escolha uma opção:
 - [ ] 1 MB
 - [ ] 1 GB
 
+[topo](#index)
+
+
 ---
 
 _ii._ Se um chip de memória DRAM armazena 2^30 bytes, qual das seguintes alternativas especifica melhor sua capacidade?
@@ -78,6 +78,10 @@ Escolha uma opção:
 - [ ] 1 MiB
 - [ ] 1 MB
 - [ ] 1 GB
+
+[topo](#index)
+
+
 ---
 ## Questão 4
 
@@ -89,6 +93,10 @@ Escolha uma ou mais:
 - [x] O ARMv7 e o x86 requerem ambos uma única instrução para realizar operações de `PUSH` ou `POP`.
 - [ ] Para implementar uma troca atômica (*atomic exchange*), o ARMv7 usa uma única instrução enquanto o MIPS 32 usa duas instruções.
 - [ ] Para implementar a atribuição `x = A[i+1]`, onde A é um arranjo cujos elementos são do tipo `char`, o ARMv7 e o MIPS32 usam o mesmo número de instruções quando as variáveis `x` e `i` são alocadas em registradores.
+
+[topo](#index)
+
+
 ---
 ## Questão 5
 _i._ Uma nova arquitetura tem as seguintes características:
@@ -183,6 +191,10 @@ Um desses formatos é mostrado abaixo. Quantas operações distintas podem ser c
 |---|---|
 
 > comentar aqui o raciocínio para encontrar a resposta. Mas em síntese trata-se de 2^11.
+
+[topo](#index)
+
+
 ---
 ## Questão 6
 
@@ -217,6 +229,10 @@ Escolha uma opção:
 - [ ] Compilador;
 - [ ] Montador;
 - [ ] Carregador;
+
+[topo](#index)
+
+
 ---
 ## Questão 7
 
@@ -233,6 +249,10 @@ _ii._ Qual das seguintes classes acomoda a maior variedade de aplicações e exi
 - [ ] Warehouse Scale Computers
 - [ ] Personal Mobile Devices
 - [ ] PCs
+
+[topo](#index)
+
+
 ---
 ## Questão 8
 
@@ -246,6 +266,10 @@ Escolha uma opção:
 - [ ] compromisso entre capacidade de armazenamento e custo
 - [ ] maximizar a capacidade de armazenamento
 - [ ] compromisso entre desempenho e capacidade de armazenamento
+
+[topo](#index)
+
+
 ---
 ## Questão 9
 
@@ -256,6 +280,10 @@ Escolha uma ou mais:
 - [x] Dois executáveis (obtidos com o mesmo compilador) que resultam no mesmo MIPS no mesmo computador têm o mesmo CPI.
 - [ ] Dois executáveis com o mesmo número de instruções e o mesmo CPI resultam no mesmo MIPS.
 - [ ] Um programa que executa num mesmo computador resulta no mesmo MIPS independentemente do compilador escolhido para compilá-lo.
+
+[topo](#index)
+
+
 ---
 ## Questão 10
 
@@ -276,6 +304,10 @@ _ii._ Qual é a faixa de endereços atingíveis por  instruções de desvio cond
 - [ ] Endereços entre 0 e 256K – 1.
 - [ ] Endereços de desde cerca de 32K antes do desvio até 32K depois do desvio.
 - [ ] Endereços entre 0 e 64K – 1.
+
+[topo](#index)
+
+
 ---
 ## Questão 11
 
@@ -287,6 +319,10 @@ Escolha uma ou mais:
 - [ ] O tempo de acesso de um HD é da ordem de dezenas de nanosegundos.
 - [ ] O tempo de acesso de uma FLASH é da ordem de dezenas de milisegundos.
 - [x] O padrão para memória secundária de PCs e Personal Mobile Devices é o uso de memórias não voláteis.
+
+[topo](#index)
+
+
 ---
 ## Questão 12
 
@@ -297,6 +333,10 @@ Escolha uma ou mais:
 - [ ] SPEC Power_ssj2008 define uma métrica que corresponde a operações por Watt;
 - [ ] SPEC Power_ssj2008 define uma métrica para desempenho de servidores;
 - [ ] SPEC Power_ssj2008 define uma métrica que é a razão entre *throughput* e energia;
+
+[topo](#index)
+
+
 ---
 ## Questão 13
 
@@ -307,6 +347,10 @@ Escolha uma ou mais:
 - [ ] Se, no *assembly* x86 de um módulo, todas as instruções são aritméticas ou `je` ou `jmp`, então o respectivo código objeto será automaticamente relocável.
 - [ ] Nas arquiteturas x86, ARMv7 e MIPS32 nenhuma instrução aritmética pode ter um operando em memória.
 - [x] Na arquitetura x86, os endereços relativos ao PC são especificados em *bytes*.
+
+[topo](#index)
+
+
 ---
 ## Questão 14
 
@@ -325,6 +369,10 @@ Escolha uma opção:
 - [ ] Os computadores têm diferentes capacidades de memória DRAM.
 - [x] Os programas-fonte implementam algoritmos diferentes.
 - [ ] Os executáveis foram obtidos com diferentes opções de compilação.
+
+[topo](#index)
+
+
 ---
 ## Questão 15
 
@@ -336,6 +384,10 @@ Escolha uma ou mais:
 - [ ] Dois executáveis com o mesmo SPEC ratio operam na mesma frequência.
 - [ ] Dois executáveis com o mesmo SPEC ratio correspondem ao mesmo CPI.
 - [x] Dois executáveis com o mesmo SPEC ratio no mesmo computador têm o mesmo produto CPI x I.
+
+[topo](#index)
+
+
 ---
 ## Questão 16
 
@@ -364,6 +416,10 @@ _iii._ Qual opção melhor representa o código compilado para o teste abaixo te
 		slt $t0,$s1,$s2
 		bne $t0,$zero,NAO_ENTRA_NAS_CHAVES
 ```
+
+[topo](#index)
+
+
 ---
 ## Questão 17
 
@@ -430,6 +486,9 @@ f:	addi $sp,$sp,8
 |**Resposta**|2 instuções precisam ser modificadas e nenhuma instrução precisa ser incluída.|
 |---|---|
 > comentar quais instruções precisam ser modificadas
+
+[topo](#index)
+
 
 ---
 ## Questão 18
@@ -505,6 +564,9 @@ lock:	addi $t0,$zero,1
 |---|---|
 > reescrever as linhas que precisam ser reescritas aqui
 
+[topo](#index)
+
+
 ---
 ## Questão 19
 
@@ -577,6 +639,10 @@ _vii._ Cada uma das alternativas abaixo é uma sequência de instruções nativa
 	add $t1,$s0,$t2
 	sw $t1,0($t0)
 ```
+
+[topo](#index)
+
+
 ---
 ## Questão 20
 
@@ -595,6 +661,10 @@ here: 	bne $s0,$s2,skip
 skip: …
 there: add $s0,$s1,$s2
 ```
+
+[topo](#index)
+
+
 ---
 ## Questão 21
 
@@ -618,6 +688,10 @@ _iii._ Cada uma das alternativas abaixo é uma sequência de instruções nativa
 	addi $s0,$s2,0xFFFB
 	sub $s0,$s0,$s1
 ```
+
+[topo](#index)
+
+
 ---
 ## Questão 22
 
@@ -651,5 +725,8 @@ Exit:	...
 ```
 |**Resposta:**|`while (array[i] > 0){ i++; }`|
 |---|---|
+
+[topo](#index)
+
 
 ---
