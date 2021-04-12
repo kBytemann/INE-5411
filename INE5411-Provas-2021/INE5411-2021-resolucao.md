@@ -35,7 +35,7 @@ Tendo em vista que ambas as empresas licenciaram a mesma ISA para seusprocessado
 **Resposta:** `1,22`
 
 > <p align="center">
-> <img src="https://render.githubusercontent.com/render/math?math=T = \frac{\pi}{2}">
+> <img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
 > </p>
 >> Demais questões seguem o mesmoo raciocínio. 
 
