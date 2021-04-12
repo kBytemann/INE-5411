@@ -416,9 +416,119 @@ _iii._ Qual opção melhor representa o código compilado para o teste abaixo te
 		slt $t0,$s1,$s2
 		bne $t0,$zero,NAO_ENTRA_NAS_CHAVES
 ```
+_iv._ Qual opção melhor representa o código compilado para o teste abaixo tendo em vistaque "a" e "b" estão armazenados nos registradores `$s1` e `$s2`?
+
+	if(a<=b){}
+	
+<center>
+<table>
+<tr>
+<td> 
+<center>
+
+**A**
+
+</center>
+</td>
+<td>
+
+```assembly
+slt $t0, $s2, $s1
+beq $t0, $zero, NAO_ENTRA_NAS_CHAVES
+```
+
+</td>
+
+</tr>
+<tr>
+<td>
+
+**B**
+
+</td>
+<td>
+
+```assembly
+slt $t0, $s2, $s1
+bne $t0, $zero, NAO_ENTRA_NAS_CHAVES
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+**C**
+
+</td>
+<td>
+
+```assembly
+bne $s1, $2, NAO_ENTRA_NAS_CHAVES
+```
+
+</td> 
+</tr>
+<tr>
+<td>
+
+**D**
+
+</td>
+<td>
+
+```assembly
+slt $t0, $s1, $s2
+bne $t0, $zero, NAO_ENTRA_NAS_CHAVES
+```
+
+</td> 
+</tr>
+<tr>
+<td>
+
+**E**
+
+</td>
+<td>
+
+```assembly
+beq $s1, $s2, NAO_ENTRA_NAS_CHAVES
+```
+
+</td> 
+</tr>
+</table>
+</center>
+
+<details>
+<summary> Resposta </summary>
+
+---
+
+<center>
+<table>
+<tr>
+<td>
+
+**B**
+
+</td>
+<td>
+
+```assembly
+slt $t0, $s2, $s1
+bne $t0, $zero, NAO_ENTRA_NAS_CHAVES
+```
+
+</td>
+</tr>
+</table>
+</center>
+
+</details>
 
 [topo](#index)
-
 
 ---
 ## Questão 17
