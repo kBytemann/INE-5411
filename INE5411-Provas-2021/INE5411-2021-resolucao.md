@@ -34,9 +34,7 @@ Tendo em vista que ambas as empresas licenciaram a mesma ISA para seusprocessado
 
 **Resposta:** `1,22`
 
-> <p align="center">
-> <img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
-> </p>
+> ![equation](https://user-images.githubusercontent.com/43814465/114413646-8e47f180-9b84-11eb-9f91-68af8e40f73c.png)
 >> Demais questões seguem o mesmoo raciocínio. 
 
 [topo](#index)
