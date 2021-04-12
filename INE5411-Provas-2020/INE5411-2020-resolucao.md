@@ -414,7 +414,7 @@ funct:	add $sp,$sp,-20
 # Extra questions
 ## Chapter 2-31
 
-```
+```assembly
 funct:	addi $t0,$zero,1
 	addi $a0,$zero,6
 	jal fib
@@ -457,5 +457,5 @@ Teste de tabela com código abaixo:
 
 | Item | Código |
 | :------: | :---------: |
-| Código **A**|<pre lang="assembly">	lw \$s1,8($s0)<br/>	sw \$s2,8(\$s1)</pre>|
-| Código **B**|<pre lang="assembly">	lw \$s1,8($s0)<br/>	sw \$s2,8(\$s1)</pre>|
+| Código **A**|<pre lang="assembly">	lw \$s1,8($s0)\	sw \$s2,8(\$s1)</pre>|
+| Código **B**|<pre lang="assembly">	lw \$s1,8($s0)\	sw \$s2,8(\$s1)</pre>|
