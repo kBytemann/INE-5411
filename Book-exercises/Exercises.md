@@ -82,3 +82,51 @@ Não, não é o resultado desejado haja visto que ocorre _overflow_.
 </td>
 </tr>
 </table>
+
+Para o cálculo faz-se uso do complemento de 2.
+
+#### 2.12.5
+
+Tomando como suposto que não há tratamento para somas que resultem em um valor representado por mais de 32 bits, havendo assim um truncamento (_overflow_), o valor em `$t0 = 0x50000000` para a primeira linha, como resolvido na questão [2.12.1](#2.12.1). Para a segunda linha de código, como a soma de `0x5 + 0x8 = 0xD`, não há _overflow_.
+
+#### 2.12.6
+Não, o valor encontrado não corresponde ao correto, dado que parte da informação se perdeu com a primeira operação de soma.
+
+[topo](#index)
+
+### 2.14
+|opcode|function|
+|:---:|:---:|
+|`0x00`|`0x20`|
+
+Disso já é possível depreender que trata-se da instrução `add`
+
+|rs|rt|rd|
+|:---:|:---:|:---:|
+|`0x11 = 17`|`0x01 = 1`|`0x00 = 0`|
+
+de maneira que trata-se da instrução: `add $s1,$at,$zero`
+
+[topo](#index)
+
+### 2.15
+`sw $t1,32($t2)` pelo green sheet, `sw` tem formato de instrução I com **opcode** `0x2B = 101011`.
+
+|opcode|rs|rt|immediate|
+|:---:|:---:|:---:|:---:|
+|101011|01010|01001|0000000000100000|
+
+[topo](#index)
+
+### 2.17
+**opcode** = `0x23 = 100011` = `lw`
+
+**rs** = 1 = `$at`
+
+**rt** = 2 = `$v0`
+
+**const** = `0x0004`
+
+de maneira que a instrução total é `lw $at,4($v0)`
+
+> confirmar se nessas operaçõs com uso de _immediate_ o valor não é armazenado já com seu valor deslocado logicamente de 2 bits. Caso sim, passa a ser `lw $at,1($v0)`, sendo necessário também revisar a questão [2.15](#2.15)
