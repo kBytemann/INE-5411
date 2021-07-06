@@ -178,3 +178,5 @@ sll $t2,$t0,4 --  $t2 == 0xAAAAAAA0 = 1010.1010.1010.1010.1010.1010.1010.0000
 andi $t2,$t2,-1 -- "-1 == 0xFFFF" sofre extensao de sinal
 ```
 `$t2 == 0xAAAAAAA0`
+
+#### 2.19.3
