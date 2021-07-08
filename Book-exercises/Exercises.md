@@ -8,9 +8,9 @@
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |AEX01|3 ~ 26|-||AEX14|||
 |AEX02|A1 ~ A9; 123 ~ 126|-||AEX15|||
-|AEX03|62 ~ 73|2.7, 2.9, 2.12, 2.14, 2.15, 2.17, 2.18||AEX16|||
-|AEX04|87 ~ 96|2.19, 2.21, 2.22, 2.26||AEX17|||
-|AEX05|96 ~ 102 |2.31, 2.34||AEX18|||
+|[AEX03](#AEX03)|62 ~ 73|2.7, 2.9, 2.12, 2.14, 2.15, 2.17, 2.18||AEX16|||
+|[AEX04](#AEX04)|87 ~ 96|2.19, 2.21, 2.22, 2.26||AEX17|||
+|[AEX05](#AEX05)|96 ~ 102 |2.31, 2.34||AEX18|||
 | [AEX06](#AEX06) |106 ~ 120|2.24, 2.25, 2.39 ~ 2.42||AEX19|||
 |AEX07|145 ~ 159|-||AEX20|||
 |AEX08|73 ~ 78, 178 ~ 181, 195, 121 ~ 123|2.43||AEX21|||
@@ -237,3 +237,44 @@ sll $t1,$t3,4
 [topo](#index)
 
 ### 2.26
+
+#### 2.26.1
+
+|code|comment|
+|:---:|:---:|
+|`LOOP: slt $t2,$0,$t1`|`$t2` somente receberá o valor lógico de 1 quando `$t1 ~= 0`, logo é setado |
+|`beq $t2,$0,DONE`|desvia se `$t1` chega ao valor de zero|
+|`subi $t1,$t1,1`|subtra de `$t1` de 1|
+|`addi $s2,$s2,2`|soma 2 em `$s2`|
+|`j LOOP`|retorna para o início do loop|
+
+Se `$t1` é inicializado com valor de 10, significa que a operação de loop ocorrerá 11 vezes, de maneira que o valor final de `$s2 == X + 20` sendo X o valor anterior.
+
+#### 2.26.2
+
+```c
+for(i = 10, i != 0, i--){
+  B += 2;
+}
+```
+Versão otimizada
+
+```c
+int i = 10;
+
+while(i != 0){
+  i -= 1;
+  B += 2;
+}
+```
+Versão de acordo com código em _assembly_.
+
+#### 2.26.3
+
+Enquanto no LOOP e `$t1` válido, são 5 instruções por passagem no loop, então 5\*N. Para `$t1 == 0` e desvio, mais duas instruções, sendo assim um total de 5\*N+2 instruções.
+
+[topo](#index)
+
+## AEX05
+
+ 
