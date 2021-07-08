@@ -11,9 +11,9 @@
 |AEX03|62 ~ 73|2.7, 2.9, 2.12, 2.14, 2.15, 2.17, 2.18||AEX16|||
 |AEX04|87 ~ 96|2.19, 2.21, 2.22, 2.26||AEX17|||
 |AEX05|96 ~ 102 |2.31, 2.34||AEX18|||
-|AEX06||||AEX19|||
-|AEX07||||AEX20|||
-|AEX08||||AEX21|||
+|AEX06|106 ~ 120|2.24, 2.25, 2.39 ~ 2.42||AEX19|||
+|AEX07|145 ~ 159|-||AEX20|||
+|AEX08|73 ~ 78, 178 ~ 181, 195, 121 ~ 123|2.43||AEX21|||
 |AEX09||||AEX22|||
 |AEX10||||AEX23|||
 |AEX11||||AEX24|||
@@ -166,17 +166,74 @@ Como originalmente _immediate_ recebe o comprimento de bits correspondente à **
 #### 2.19.1
 
 ```
-sll $t2,$t0,44 --shift left de 44 bits -> $t2 == 0x0000000
-or $t2,$t2,$t1 --or logico de $t1 com 0x00000000
+sll $t2,$t0,44  # shift left de 44 bits -> $t2 == 0x0000000
+or $t2,$t2,$t1  # or logico de $t1 com 0x00000000
 ```
 `$t2 == $t1 == 0x12345678`
 
 #### 2.19.2
 
 ```
-sll $t2,$t0,4 --  $t2 == 0xAAAAAAA0 = 1010.1010.1010.1010.1010.1010.1010.0000
-andi $t2,$t2,-1 -- "-1 == 0xFFFF" sofre extensao de sinal
+sll $t2,$t0,4   # $t2 == 0xAAAAAAA0 = 1010.1010.1010.1010.1010.1010.1010.0000
+andi $t2,$t2,-1   # "-1 == 0xFFFF" nao sofre extensao de sinal
 ```
-`$t2 == 0xAAAAAAA0`
+`$t2 == 0x0000AAA0`
 
 #### 2.19.3
+
+```
+srl $t2,$t0,3   --$t2 = 0x15555555
+andi $t2,$t2,0xFFEF -- $t2 = 0x00005545
+```
+
+`$t2 = 0x00005545`
+
+Os resultados são de acordo com a simulação no MARS
+
+[topo](#index)
+
+### 2.21
+
+<table>
+<tb>
+<td>
+`not $t1,$t2`
+</td>
+<td>
+`nor $t2,$t1,$t1`
+</td>
+</tb>
+</table>
+
+|**A**|**A**|**A or A**|**~(A or A)**|
+|:---:|:---:|:---:|:---:|
+|0|0|0|1|
+|1|1|1|0|
+
+[topo](#index)
+
+### 2.22
+
+<table>
+<tb>
+<td>
+
+```c
+A = C[0] << 4
+```
+
+</td>
+<td>
+
+```
+lw $t3,0($s1)
+sll $t1,$t3,4
+```
+
+</td>
+</tb>
+</table>
+
+[topo](#index)
+
+### 2.26
