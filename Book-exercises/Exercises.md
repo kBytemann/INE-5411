@@ -252,13 +252,14 @@ Se `$t1` é inicializado com valor de 10, significa que a operação de loop oco
 
 #### 2.26.2
 
+Versão otimizada
 ```c
 for(i = 10, i != 0, i--){
   B += 2;
 }
 ```
-Versão otimizada
 
+Versão de acordo com código em _assembly_.
 ```c
 int i = 10;
 
@@ -267,7 +268,6 @@ while(i != 0){
   B += 2;
 }
 ```
-Versão de acordo com código em _assembly_.
 
 #### 2.26.3
 
@@ -277,4 +277,57 @@ Enquanto no LOOP e `$t1` válido, são 5 instruções por passagem no loop, ent�
 
 ## AEX05
 
- 
+### 2.31
+
+<table>
+<tb>
+<td>
+
+```c
+int fib(int n){
+  if (n==0)
+    return 0;
+  else if (n == 1)
+    return 1;
+  else
+    return fib(n−1) + fib(n−2);
+}
+```
+
+</td>
+<td>
+
+```
+fib:
+	addi $t1,$0,1
+
+loop:
+	addi $sp,$sp,-4
+	sw $ra,0($sp)
+	beq $a0,$0,L0
+ 	beq $a0,$t1,L1
+	addi $a0,$a0,-1
+
+	jal loop
+
+	lw $ra,0($sp)
+	addi $sp,$sp,4
+
+	add $t0,$v0,$0
+	add $v0,$v0,$v1
+	add $v1,$t0,$0
+
+	jr $ra
+
+L0:
+	add $v0,$0,$0
+	jr $ra
+
+L1:
+	addi $v1,$0,1
+	jr $ra
+```
+
+</td>
+</tb>
+</table>
