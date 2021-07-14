@@ -387,3 +387,21 @@ func:
 ### 2.24
 
 Instruções do tipo _jump_ possuem os 26 bits menos significativos como número de palavras. O valor que se apresenta portanto deve ser multiplicado por 4 (deslocamento lógico de 2 _bits_ para a esquerda) e concatenado aos 4 _bits_ mais significativos do PC atual. Assim se `PC = 0x2000 0000` não há como alcançar o endereço **0x4000 0000**, pois necessitaria a alteração dos 4 _bits_ mais significativos.
+
+> conferir se resposta esta correta ou não
+
+### 2.25
+
+`rpt $t2, loop # if(R[rs]>0) R[rs]=R[rs]−1, PC=PC+4+BranchAddr`
+
+#### 2.25.1
+
+Formato mais adequado é o formato I pois é o que caracteriza também o desvio condicional, de maneira que pode-se implementar o desvio condicional a partir do teste do registrador `$t2`
+
+#### 2.25.2
+
+```
+rpt:
+  addi $t2,$t2,-1
+  bne $t2,$zero,rpt
+``` 
