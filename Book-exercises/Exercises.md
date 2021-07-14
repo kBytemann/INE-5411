@@ -404,4 +404,75 @@ Formato mais adequado é o formato I pois é o que caracteriza também o desvio 
 rpt:
   addi $t2,$t2,-1
   bne $t2,$zero,rpt
-``` 
+```
+
+[topo](#index)
+
+### 2.39
+
+```
+# code checks, and is quite similar do load address
+lui $0,$t1,0x2001 # loads upper 16 bits
+ori $t1,0x4924    # loads lower 16 bits
+```
+
+[topo](#index)
+
+### 2.40
+
+Não. Para alcançar  o endereço proposto no exercício anterior, o PC deveria ter início `0x2...`. O endereço pode ser alcançado no entanto com o uso da instrução `jr $t1`.
+
+[topo](#index)
+
+### 2.41
+
+Não, não é possível com uma instrução de _branch_ alcançar o endereço proposto no exercício 2.39.
+
+**Endereço máximo alcançável:**
+
+```
+PC' = PC + 4 + (immediate << 2)
+PC' = PC + 4 + (0x7FFF << 2) # remember signal extension that occurs in branches
+PC' = PC + 0x4 + (0x1FFFC)
+PC' = PC + 0x0002.0000
+PC' = 0x0000.0600 + 0x0002.0000
+PC' = 0x0002.0600
+```
+
+**Endereço mínimo alcançável:**
+
+```
+PC' = PC + 4 + (immediate << 2)
+PC' = PC + 4 + (0x8000 << 2)
+PC' = PC + 4 + (0xFFFE.0000)
+PC' = PC + (0xFFFE.0004)
+PC' = 0x0000.0600 + 0xFFFE.0004
+PC' = 0xFFFE.0604
+```
+
+> Importante notar que apesar de ser tratado como endereço mínimo, o segundo cálculo coloca o PC muito mais a frente do que o endereço máximo. Isso se deve ao fato de que há extensão do sinal.
+
+[topo](#index)
+
+### 2.42
+
+`PC' = 0x2001.4924`
+```
+0x2001.4924 = 0x1FFFF000 + 0x4 + (imm << 2)
+0x0001.5924 = 0x4 + (imm << 2)
+0x0001.5920 = (imm << 2)
+(0x0001.5920 >> 2) = ((imm << 2) >> 2)
+0x0000.5648 = imm
+```
+
+Portanto _immediate_ = 22088 que aplicando log2(22088) = 14,43 < 16, logo pode ser representado por 16 bits. Assim pode-se usar apenas uma instrução de _branch_ para alcançar o endereço proposto no exercício 2.39 tendo o PC = **0x2001.4924**
+
+[topo](#index)
+
+## AEX08
+
+### 2.43
+
+
+
+[topo](#index)
