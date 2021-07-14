@@ -340,7 +340,7 @@ L1:
 <tb>
 <td>
 
-```c
+```c=
 int f(int a, int b, int c, int d){
   return func(func(a,b),c+d);
 }
@@ -385,3 +385,5 @@ func:
 ## AEX06
 
 ### 2.24
+
+Instruções do tipo _jump_ possuem os 26 bits menos significativos como número de palavras. O valor que se apresenta portanto deve ser multiplicado por 4 (deslocamento lógico de 2 _bits_ para a esquerda) e concatenado aos 4 _bits_ mais significativos do PC atual. Assim se `PC = 0x2000 0000` não há como alcançar o endereço **0x4000 0000**, pois necessitaria a alteração dos 4 _bits_ mais significativos.
