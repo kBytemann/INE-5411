@@ -331,3 +331,57 @@ L1:
 </td>
 </tb>
 </table>
+
+[topo](#index)
+
+### 2.34
+
+<table>
+<tb>
+<td>
+
+```c
+int f(int a, int b, int c, int d){
+  return func(func(a,b),c+d);
+}
+```
+
+</td>
+<td>
+
+```
+f:
+	add $sp,$sp,-4
+	sw $ra,0($sp)
+
+	jal func
+
+	add $a1,$a2,$a3		# $a1 = c+d
+	add $a0,$v0,$zero	# $a0 = func($a0,$a1) == $v0
+
+	jal func
+
+	lw $ra,0($sp)
+	add $sp,$sp,4
+
+	jr $ra
+
+func:
+	# example: func(a,b) returns a+b
+	add $v0,$a0,$a1
+
+	jr $ra
+
+	# function expression
+	# function returns integer at $v0
+```
+
+</td>
+</tb>
+</table>
+
+[topo](#index)
+
+## AEX06
+
+### 2.24
